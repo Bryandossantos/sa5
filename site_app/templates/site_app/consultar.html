@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #FC466B, #3F5EFB);
+        }
+
+        main {
+            text-align: center;
+        }
+
+        .container-input {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #030303;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        nav{
+        background-color: var(--cor5);
+        padding: 10px;
+        box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.363);
+        }
+
+        nav > a{
+            color: var(--cor1);
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition-duration: .5s;
+        }
+
+        nav > a:hover{
+            background-color: var(--cor3);
+            color: var(--cor5);
+        }
+
+        .drop {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        transition: all 0.2s ease;
+      }
+      .drop-1 {
+        height: 80px;
+        width: 80px;
+        top: -20px;
+        left: -40px;
+        z-index: -1;
+      }
+      .drop-2 {
+        height: 80px;
+        width: 80px;
+        bottom: -30px;
+        right: -10px;
+      }
+      .drop-3 {
+        height: 100px;
+        width: 100px;
+        bottom: 120px;
+        right: -50px;
+        z-index: -1;
+      }
+      .drop-4 {
+        height: 120px;
+        width: 120px;
+        top: -60px;
+        right: -60px;
+      }
+      .drop-5 {
+        height: 60px;
+        width: 60px;
+        bottom: 170px;
+        left: 90px;
+        z-index: -1;
+      }
+
+    </style>
+</head>
+<body>
+  
+    <main>
+      <nav>
+        <a class="menu-item" id="button1" href="{% url 'base' %}">Inicio</a>
+        <a class="menu-item" id="button1" href="{% url 'criar' %}">Criar</a>
+        <a class="menu-item" id="button1" href="{% url 'consultar' %}">Consultar</a>
+        <a class="menu-item" id="button2" href="{% url 'atualizar' %}">Atualizar</a>
+        <a class="menu-item" id="button3" href="{% url 'deletar' %}">Excluir</a>
+        <div>
+          <h1 class="h2">Home</h1> 
+        </div>
+        <h2 class="h4">10 Resultados Mais Recentes</h2>
+        {% include "site_app/procura.html" with url_search="consultar" %}
+        <div class="container-input">
+          {% if dados %}
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Email</th>
+                <th scope="col">Pais</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in dados %}
+              <tr>
+                <td>{{row.id}}</td>
+                <td>{{row.nome}}</td>
+                <td>{{row.nascimento}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.pais}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
+        </div>
+        <div class="drops">
+          <div class="drop drop-1"></div>
+          <div class="drop drop-2"></div>
+          <div class="drop drop-3"></div>
+          <div class="drop drop-4"></div>
+          <div class="drop drop-5"></div>
+        </div>
+      </main>
+</body>
+</html>

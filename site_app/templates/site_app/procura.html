@@ -1,0 +1,14 @@
+<div class="mt-4 mb-4">
+    <form action="{% url url_search %}" method="get">
+        {% csrf_token %}
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="nome" placeholder="Nome"
+                        aria-describedby="button-addon2" size="50">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">procura</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
