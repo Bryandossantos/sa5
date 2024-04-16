@@ -36,6 +36,39 @@
       th {
         background-color: #f2f2f2;
     }
+    .drop-1 {
+        height: 80px;
+        width: 80px;
+        top: -20px;
+        left: -40px;
+        z-index: -1;
+      }
+      .drop-2 {
+        height: 80px;
+        width: 80px;
+        bottom: -30px;
+        right: -10px;
+      }
+      .drop-3 {
+        height: 100px;
+        width: 100px;
+        bottom: 120px;
+        right: -50px;
+        z-index: -1;
+      }
+      .drop-4 {
+        height: 120px;
+        width: 120px;
+        top: -60px;
+        right: -60px;
+      }
+      .drop-5 {
+        height: 60px;
+        width: 60px;
+        bottom: 170px;
+        left: 90px;
+        z-index: -1;
+      }
     </style>
 </head>
 <body>
@@ -44,11 +77,12 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <nav>
             <a class="menu-item" id="button1" href="{% url 'base' %}">Inicio</a>
-            <a class="menu-item" id="button1" href="{% url 'consultar' %}">Consultar</a>
+            <a class="menu-item" id="button1" href="{% url 'criar' %}">Criar</a>
+            <a class="menu-item" id="button3" href="{% url 'consultar' %}">Consultar</a>
             <a class="menu-item" id="button2" href="{% url 'atualizar' %}">Atualizar</a>
             <a class="menu-item" id="button3" href="{% url 'deletar' %}">Excluir</a>
           </nav>
-          <h1 class="h2">Home</h1> 
+          <h1 class="h2">Lista</h1> 
         </div>
         <h2 class="h4">10 Resultados Mais Recentes</h2>
         <div class="table-responsive small">
@@ -76,6 +110,13 @@
             </tbody>
           </table>
           {% endif %}
+        </div>
+        <div class="drops">
+          <div class="drop drop-1"></div>
+          <div class="drop drop-2"></div>
+          <div class="drop drop-3"></div>
+          <div class="drop drop-4"></div>
+          <div class="drop drop-5"></div>
         </div>
       </main>
 </body>

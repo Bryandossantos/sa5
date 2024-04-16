@@ -52,15 +52,15 @@
           nav > a:hover{
               background-color: var(--cor3);
               color: var(--cor5);
-          }
-          
+          }  
       </style>
-        <nav class="form">
+      
+        <nav>
           <a class="menu-item" id="button1" href="{% url 'base' %}">Inicio</a>
           <a class="menu-item" id="button1" href="{% url 'criar' %}">Criar</a>
+          <a class="menu-item" id="button3" href="{% url 'consultar' %}">Consultar</a>
           <a class="menu-item" id="button2" href="{% url 'atualizar' %}">Atualizar</a>
           <a class="menu-item" id="button3" href="{% url 'deletar' %}">Excluir</a>
-      
         <h1 class="h2">Atualizar</h1> 
         {% include "site_app/procura.html" with url_search="atualizar" %}
       </div>
@@ -93,7 +93,10 @@
         </table>
         {%else%}
         <h1 class="h5 text-center">Nenhum registro encontrado!</h1> 
+        
         {% endif %}
       </div>
+
     </nav>
+   
     </main>
